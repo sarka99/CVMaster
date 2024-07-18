@@ -1,11 +1,13 @@
+import { UserButton } from '@clerk/clerk-react'
 import React from 'react'
-
-function Home() {
+import Header from '../components/custom/Header'
+function HomePage() {
   return (
     <div>
-      idiot
+      <Header/>
+      Landing screen
     </div>
   )
 }
 
-export default Home
+export default HomePage
