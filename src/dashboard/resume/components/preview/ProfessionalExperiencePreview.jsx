@@ -24,8 +24,8 @@ export default function ProfessionalExperiencePreview({ resumeInfo }) {
               {experience?.startDate} - {experience?.currentlyWorking ? 'Present' : experience?.endDate}
             </span>
           </div>
+          <div dangerouslySetInnerHTML={{__html:experience?.workSummery}}/>
 
-          <p className='text-xs my-2'>{experience.workSummery}</p>
         </div>
       ))}
     </div>
