@@ -12,8 +12,8 @@ import { BtnBold, BtnItalic, Toolbar,Editor,EditorProvider,
   HtmlButton,
   Separator,
   } from 'react-simple-wysiwyg'
-function RichTextEditor({onRichTextEditorChange}) {
-  const [value, setValue] = useState();
+function RichTextEditor({onRichTextEditorChange,defaultValue}) {
+  const [value, setValue] = useState(defaultValue);
   return (
     <div>
   <EditorProvider>

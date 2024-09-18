@@ -39,6 +39,10 @@ function Education() {
     ])
 
     }
+    useEffect(()=>{
+        resumeInfo && setEducationalList(resumeInfo?.education)
+        console.log(educationalList)
+    },[resumeInfo])
     const RemoveEducation = ()=>{
         if(educationalList.length>1){
             setEducationalList(educationalList=>educationalList.slice(0,-1))
@@ -48,7 +52,7 @@ function Education() {
         setLoading(true);
      const data = {
         data:{
-          education:educationalList  
+          education:educationalList.map(({id, ...rest}) => rest)
         }
      }
         GlobalApi.updateResumeDetail(params?.resumeId,data).then(res=>{
@@ -60,12 +64,7 @@ function Education() {
         toast('Server Error, Please try again!')
      })
     }
-    useEffect(()=>{
-        setResumeInfo({
-            ...resumeInfo,
-            education:educationalList
-        })
-    },[educationalList])
+  
 
 
   return (
@@ -78,32 +77,46 @@ function Education() {
                 <div className='grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg'>
                     <div className='col-span-2'>
                         <label>University Name</label>
-                        <Input name="universityName" onChange={(e)=>handleChange(e,index)}/>
+                        <Input name="universityName" onChange={(e)=>handleChange(e,index)}
+                        defaultValue = {item?.universityName}
+                        />
                     </div>
 
                     <div>
                         <label>Degree</label>
-                        <Input name="degree" onChange={(e)=>handleChange(e,index)}/>
+                        <Input name="degree" onChange={(e)=>handleChange(e,index)}
+                        defaultValue = {item?.degree}
+                        />
                     </div>
         
                     <div>
                         <label>Major</label>
-                        <Input name="major" onChange={(e)=>handleChange(e,index)}/>
+                        <Input name="major" onChange={(e)=>handleChange(e,index)}
+                        defaultValue = {item?.major}
+
+                        />
                     </div>
                     
                     <div>
                         <label>Start Date</label>
-                        <Input name="startDate" type="date" onChange={(e)=>handleChange(e,index)}/>
+                        <Input name="startDate" type="date" onChange={(e)=>handleChange(e,index)}
+                        defaultValue = {item?.startDate}
+                        />
                     </div>
                     
                     <div>
                         <label>End Date</label>
-                        <Input name="endDate"  type="date" onChange={(e)=>handleChange(e,index)}/>
+                        <Input name="endDate"  type="date" onChange={(e)=>handleChange(e,index)}
+                        defaultValue = {item?.endDate}
+
+                        />
                     </div>
 
                     <div className="flex flex-col space-y-2">
                     <label >Description</label>
-                    <textarea name="description" className="rounded-lg border border-black p-6" onChange={(e) => handleChange(e, index)} />
+                    <textarea name="description" className="rounded-lg border border-black p-6" onChange={(e) => handleChange(e, index)} 
+                        defaultValue={item?.description}
+                        />
                     </div>
 
            

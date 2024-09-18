@@ -57,7 +57,9 @@ function Summary({enableNext}) {
                 className="mt-5"
                 required
                 value={summery}
-                onChange={(e) => setSummery(e.target.value)}/>
+                onChange={(e) => setSummery(e.target.value)}
+                
+                />
 
 
                 <div className='mt-2 flex justify-end'>

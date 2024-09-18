@@ -29,6 +29,12 @@ function Experience() {
         workSummery: '' // Note: This matches your Strapi field for markdown
     }]);
     const {resumeInfo, setResumeInfo} = useContext(ResumeInfoContext);
+
+    useEffect(()=>{
+        resumeInfo && setExperienceList(resumeInfo?.Experience)
+
+    }, [resumeInfo])
+
     const handleChange = (index,event) =>{
         const newEntries = experienceList.slice();
         const {name, value} = event.target;
@@ -96,38 +102,54 @@ function Experience() {
                     <div className='grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg' g>
                         <div>
                         <label className='text-xs'>Position Title</label>
-                        <Input name="title" onChange={(event) => handleChange(index, event)}/>
+                        <Input name="title" onChange={(event) => handleChange(index, event)}
+                        defaultValue={field?.title}
+                        
+                        />
                         </div>
 
                         <div>
                         <label className='text-xs'>Company Name</label>
-                        <Input name="companyName" onChange={(event) => handleChange(index, event)}/>
+                        <Input name="companyName" onChange={(event) => handleChange(index, event)}
+                        defaultValue={field?.companyName}
+
+                        />
                         </div>
 
                         <div>
                         <label className='text-xs'>City</label>
-                        <Input name="city" onChange={(event) => handleChange(index, event)}/>
+                        <Input name="city" onChange={(event) => handleChange(index, event)}
+                        defaultValue={field?.city}
+                        />
                         </div>
 
                         <div>
                         <label className='text-xs'>State</label>
-                        <Input name="state" onChange={(event) => handleChange(index, event)}/>
+                        <Input name="state" onChange={(event) => handleChange(index, event)}
+                        defaultValue={field?.state}
+                        />
                         </div>
 
                         <div>
                         <label className='text-xs'>Start Date</label>
-                        <Input name="startDate" type = "date" onChange={(event) => handleChange(index, event)}/>
+                        <Input name="startDate" type = "date" onChange={(event) => handleChange(index, event)}
+                        defaultValue={field?.startDate}
+                        />
                         </div>
 
                         <div>
                         <label className='text-xs'>End Date</label>
-                        <Input name="endDate" type="date" onChange={(event) => handleChange(index, event)}/>
+                        <Input name="endDate" type="date" onChange={(event) => handleChange(index, event)}
+                        defaultValue={field?.endDate}
+/>
                         </div>  
 
 
                         <div className='col-span-2'>
                         <RichTextEditor 
                         onRichTextEditorChange={(event) =>handleRichTextEditor(event,'workSummery',index)}
+                        defaultValue={field?.workSummery}
+
                         />
                         </div>    
 
