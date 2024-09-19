@@ -9,6 +9,7 @@ import HomePage from './home/index.jsx'
 
 import { ClerkProvider } from '@clerk/clerk-react'
 import EditResume from './dashboard/resume/[resumeId]/edit/index.jsx'
+import ViewResume from './my-resume/resumeId/view/index.jsx'
 // Import your publishable key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: '/auth/sign-in',
     element : <SignInPage/>
+  },
+  {
+    path : '/my-resume/:resumeId/view',
+    element : <ViewResume/ >
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
