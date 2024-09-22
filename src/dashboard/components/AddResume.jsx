@@ -32,13 +32,16 @@ function AddResume() {
             userEmail : user?.primaryEmailAddress?.emailAddress
           }
         }
+        console.log("Requesting to:", import.meta.env.VITE_BASE_URL + "/api/user-resumes");
+
         GlobalApi.CreateNewResume(data).then(resp=>{
-          console.log(resp);
           if(resp){
             setLoading(false);
+            console.log("Created resume: " , )
             navigation('/dashboard/resume/'+resp.data.data.documentId+'/edit');
           }
         },(error)=>{
+          console.log("error when creating resume:" , resp);
           setLoading(false);
         } )
     }

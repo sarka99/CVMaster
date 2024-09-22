@@ -10,6 +10,24 @@
   list-style: decimal;
   padding-left: 2em;
 }
+@media print{
+  #non-print-area{
+    display: none;
+  }
+  #print-area{
+    display: block;
+  }
+  body{
+    margin:0;
+    padding:0;
+    box-shadow:none;
+  }
+  @page{
+    size: auto;
+    margin: 0;
+  }
+  
+}
 @layer base {
   :root {
     --background: 0 0% 100%;

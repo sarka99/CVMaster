@@ -7,6 +7,7 @@ import Summary from './forms/Summary';
 import Experience from './forms/Experience';
 import Education from './forms/Education';
 import Skills from './forms/Skills';
+import ThemeColor from './ThemeColor';
 
 function FormSection() {
   const [activeFormIndex, setActiveFormIndex] = useState(1);
@@ -21,9 +22,8 @@ function FormSection() {
             <Button className="flex gap-5"><Home /></Button>
           </Link>
 
-          <Button variant="outline" size="sm" className="flex gap-z">
-            <LayoutGrid /> Theme
-          </Button>
+         <ThemeColor></ThemeColor>
+
         </div>
 
         <div className='flex gap-2'>
