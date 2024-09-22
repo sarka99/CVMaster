@@ -121,17 +121,20 @@ function Education() {
             <div className='col-span-2 flex justify-end'>
               <Button variant="outline" className="text-primary" onClick={() => RemoveEducation(index)}>- Remove Education</Button>
             </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Render Add/Save Buttons here outside the map */}
-      <div className='flex justify-between'>
+            <div className='flex justify-between'>
         <Button variant="outline" className="text-primary" onClick={AddNewEducation}>+ Add More Education</Button>
         <Button disabled={loading} onClick={onSave}>
           {loading ? <LoaderCircle className='animate-spin' /> : 'Save'}
         </Button>
       </div>
+          </div>
+          
+          
+        ))}
+      </div>
+
+      {/* Render Add/Save Buttons here outside the map */}
+     
     </div>
   );
 }
