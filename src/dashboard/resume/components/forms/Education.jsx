@@ -58,7 +58,7 @@ function Education() {
       }
     }
 
-    GlobalApi.UpdateResumeDetail(params.resumeId,data).then(resp=>{
+    GlobalApi.updateResumeDetail(params.resumeId,data).then(resp=>{
       console.log(resp);
       setLoading(false)
       toast('Details updated !')
