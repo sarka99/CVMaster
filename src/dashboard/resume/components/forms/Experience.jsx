@@ -80,7 +80,7 @@ function Experience() {
 
          console.log(experinceList)
 
-        GlobalApi.UpdateResumeDetail(params?.resumeId,data).then(res=>{
+        GlobalApi.updateResumeDetail(params?.resumeId,data).then(res=>{
             console.log(res);
             setLoading(false);
             toast('Details updated !')
